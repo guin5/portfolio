@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Gideon Said is a mechanical engineering student building vehicles, robots, research systems, and useful software.">
+  <title>Gideon Said | Mechanical Engineer</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232374AB' stroke-width='2'%3E%3Cpath d='M5 18V6h9l5 6-5 6H5Z'/%3E%3Ccircle cx='10' cy='12' r='2'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="wordmark" href="#home" aria-label="Gideon Said, home">GS<span>.</span></a>
+    <nav class="nav-pill" aria-label="Primary navigation">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Toggle theme">
+      <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.2A8 8 0 0 1 8.8 4 8.1 8.1 0 1 0 20 15.2Z"/></svg>
+    </button>
+  </header>
+
+  <main id="main">
+    <section class="hero reveal" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> Mechanical engineering / Georgia Tech</p>
+        <h1 id="hero-title">I design, build, and <span>test.</span></h1>
+        <p class="hero-intro">I'm Gideon Said, a mechanical engineering student working across physical systems, digital fabrication, experimental research, and software.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">View projects
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="button secondary" href="mailto:gideonesaid@gmail.com">Get in touch
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-system" role="img" aria-label="Diagram connecting Gideon's mechanical, electrical, fabrication, and software skills">
+        <div class="system-bar"><span>ENGINEERING / 01</span><span class="system-live">ACTIVE</span></div>
+        <div class="discipline-map">
+          <span class="axis axis-x"></span><span class="axis axis-y"></span>
+          <div class="discipline d-mech"><small>01</small>Mechanical</div>
+          <div class="discipline d-code"><small>02</small>Software</div>
+          <div class="discipline d-build"><small>03</small>Fabrication</div>
+          <div class="discipline d-test"><small>04</small>Testing</div>
+          <div class="map-core"><strong>GS</strong><small>BUILD / LEARN</small></div>
+        </div>
+        <div class="system-stats">
+          <span><small>GPA</small>4.0</span>
+          <span><small>FOCUS</small>ME</span>
+          <span><small>GRAD</small>2028</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading reveal">
+        <div><p class="kicker">01 / Projects</p><h2 id="projects-title">Work in motion.</h2></div>
+        <p>Hands-on engineering projects spanning composites, robotics, self-hosted AI, and browser software.</p>
+      </div>
+
+      <div class="project-list">
+        <article class="case-study reveal" style="--project: #d25f46">
+          <div class="case-header"><span>01 / Vehicle engineering</span><span>Aug 2025 - Present</span></div>
+          <div class="photo-pair">
+            <figure class="photo-main"><img src="assets/fiberglass-layup.jpg" alt="Fiberglass rear wing layup on a foam mold in the workshop" width="2000" height="2000" loading="lazy"><figcaption>Full-scale composite layup</figcaption></figure>
+            <figure class="photo-detail"><img src="assets/fiberglass-tests.jpg" alt="Fiberglass test coupons made with different resin and hardener configurations" width="2000" height="2000" loading="lazy"><figcaption>Material test coupons</figcaption></figure>
+          </div>
+          <div class="case-copy">
+            <div><p class="project-number">WRECK RACING</p><h3>$2,000 Challenge Car</h3></div>
+            <div class="case-description">
+              <p>Working on a 40-person team to design, manufacture, and race a vehicle under a strict $2,000 total budget.</p>
+              <ul>
+                <li>Reverse engineered and modeled Volkswagen Jetta transmission components in Autodesk Fusion 360 for vehicle integration.</li>
+                <li>Tested fiberglass resin and hardener configurations to balance strength and surface friction.</li>
+                <li>Manufactured lightweight bodywork, including a rear wing designed and fabricated for approximately $40.</li>
+              </ul>
+              <ul class="tags" aria-label="Project skills"><li>Fusion 360</li><li>Reverse engineering</li><li>Composites</li><li>Manufacturing</li></ul>
+            </div>
+          </div>
+        </article>
+
+        <div class="project-grid">
+          <article class="project-card reveal" style="--project: #d6a52e">
+            <div class="project-topline"><span>02 / Robotics</span><span>2026 - Present</span></div>
+            <div class="project-visual robot-visual" aria-hidden="true">
+              <div class="robot">
+                <span class="robot-arm arm-left"></span><span class="robot-arm arm-right"></span>
+                <span class="robot-body"><i></i><i></i></span>
+                <span class="robot-wheel wheel-left"></span><span class="robot-wheel wheel-right"></span>
+              </div>
+              <span class="dimension dim-top">240 mm</span><span class="dimension dim-side">VARIABLE GEOMETRY</span>
+            </div>
+            <div class="project-copy">
+              <p class="project-number">AUTONOMOUS ROBOT DESIGN</p>
+              <h3>Competition Robot</h3>
+              <p>Designed and fabricated mechanisms for an autonomous robot to collect and deposit objects while climbing obstacles in a competitive challenge.</p>
+              <ul class="tags"><li>Mechanism design</li><li>Laser cutting</li><li>FDM printing</li></ul>
+            </div>
+          </article>
+
+          <article class="project-card reveal" style="--project: #2aa67a">
+            <div class="project-topline"><span>03 / Systems</span><span>2026 - Present</span></div>
+            <div class="project-visual server-visual" aria-hidden="true">
+              <div class="terminal">
+                <div class="terminal-bar"><i></i><i></i><i></i><span>home-ai</span></div>
+                <code><b>$</b> ollama serve<br><em>running llama model...</em><br><b>$</b> tailscale status<br><em>100.x.x.x connected</em><br><b>$</b> healthcheck<br><strong>all systems operational</strong><span class="cursor">_</span></code>
+              </div>
+            </div>
+            <div class="project-copy">
+              <p class="project-number">HOME AI SERVER</p>
+              <h3>Self-hosted AI Platform</h3>
+              <p>Built a remotely accessible AI system with local Ollama models, a Flask proxy, web search, automated health checks, and restart logic.</p>
+              <ul class="tags"><li>Python</li><li>Flask</li><li>Ollama</li><li>Tailscale</li></ul>
+            </div>
+          </article>
+
+          <article class="project-card wide reveal" style="--project: #2374ab">
+            <div class="project-topline"><span>04 / Web application</span><span>Live</span></div>
+            <div class="project-visual utility-visual" aria-hidden="true">
+              <div class="mini-window">
+                <div class="mini-nav"><i></i><i></i><i></i><b>Knickknacks</b></div>
+                <div class="mini-grid"><span class="purple">PDF</span><span class="orange">Aa</span><span class="blue">↔</span><span class="rose">◷</span><span class="green">⌁</span></div>
+              </div>
+            </div>
+            <div class="project-copy">
+              <p class="project-number">KNICKKNACKS</p>
+              <h3>Everyday Browser Tools</h3>
+              <p>A focused suite of browser-based utilities for converting and organizing files, counting words, converting units, tracking time, and testing network speed.</p>
+              <ul class="tags"><li>JavaScript</li><li>Web APIs</li><li>Responsive UI</li></ul>
+              <div class="project-links">
+                <a href="https://guin5.github.io/knickknacks/#home" target="_blank" rel="noreferrer">Open website <span>↗</span></a>
+                <a href="https://github.com/guin5/knickknacks" target="_blank" rel="noreferrer">View source <span>↗</span></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading reveal">
+        <div><p class="kicker">02 / Experience</p><h2 id="experience-title">Learning by doing.</h2></div>
+        <p>Research, engineering teamwork, and roles centered on dependable service.</p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <div class="timeline-meta"><span>2026 - Present</span><small>Atlanta, GA</small></div>
+          <div><p class="role-type">Research</p><h3>Undergraduate Researcher</h3><h4>Subsurface Processes Laboratory</h4><p>Investigating how motor speed, driving frequency, and mechanism angle affect pile-driving performance. Connected a load cell to an Arduino and collect force data across operating conditions to evaluate pile penetration.</p><ul class="tags"><li>Arduino</li><li>Instrumentation</li><li>Experimental design</li></ul></div>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="timeline-meta"><span>2025 - Present</span><small>Atlanta, GA</small></div>
+          <div><p class="role-type">Engineering team</p><h3>Wreck Racing</h3><h4>$2,000 Challenge</h4><p>Collaborating across a 40-person team to deliver a race-ready vehicle within extreme cost constraints through CAD, reverse engineering, composite testing, and fabrication.</p></div>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="timeline-meta"><span>2025 - Present</span><small>Los Angeles, CA</small></div>
+          <div><p class="role-type">Operations</p><h3>Messenger Clerk</h3><h4>Los Angeles Public Library</h4><p>Support daily library operations, organize materials, complete opening and closing procedures, and help patrons locate resources.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="about-card reveal">
+        <div class="education-panel">
+          <div class="gt-mark" aria-hidden="true">GT</div>
+          <p class="kicker">Education</p>
+          <h3>Georgia Institute of Technology</h3>
+          <p>B.S. Mechanical Engineering<br>Expected December 2028</p>
+          <div class="gpa"><strong>4.0</strong><span>GPA</span></div>
+        </div>
+        <div class="about-copy">
+          <p class="kicker">03 / About</p>
+          <h2 id="about-title">Mechanical thinking,<br>digital toolkit.</h2>
+          <p>I like moving between CAD, the shop, test data, and code. That range lets me take an idea beyond a model and understand how it behaves in the real world.</p>
+          <div class="skill-groups">
+            <div><h3>Engineering</h3><p>SolidWorks, Fusion 360, reverse engineering, mechatronics, circuits, statics, dynamics</p></div>
+            <div><h3>Fabrication</h3><p>Fiberglass layup, laser cutting, FDM 3D printing, SLS part design</p></div>
+            <div><h3>Software</h3><p>Python, MATLAB, C, Arduino, Flask, Ollama, Tailscale</p></div>
+          </div>
+          <p class="certification"><span>CSWA</span> SOLIDWORKS CAD Design Associate, December 2025</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact reveal" aria-labelledby="contact-title">
+      <p class="kicker">04 / Contact</p>
+      <h2 id="contact-title">Let's build something real.</h2>
+      <p>Based in Los Angeles and studying in Atlanta.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="mailto:gideonesaid@gmail.com">gideonesaid@gmail.com
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="button secondary" href="https://github.com/guin5" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="wordmark" href="#home">GS<span>.</span></a>
+    <p>Designed and engineered by Gideon Said. <span id="year"></span></p>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+</body>
+</html>
