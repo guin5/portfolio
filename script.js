@@ -1,42 +1,76 @@
-const root = document.documentElement;
-const themeButton = document.querySelector('.theme-toggle');
-const storedTheme = localStorage.getItem('portfolio-theme');
-const preferredTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+(() => {
+  const root = document.documentElement;
+  const storageKey = 'portfolio-theme';
+  let theme = 'light';
 
-function setTheme(theme) {
+  try {
+    const saved = localStorage.getItem(storageKey);
+    if (saved === 'light' || saved === 'dark') theme = saved;
+  } catch {
+    // The portfolio still works when browser storage is unavailable.
+  }
+
+  // Apply before the body renders to avoid a flash when returning in dark mode.
   root.dataset.theme = theme;
-  themeButton.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`);
-}
 
-setTheme(storedTheme || preferredTheme);
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.querySelector('.theme-toggle');
+    const themeColor = document.querySelector('meta[name="theme-color"]');
 
-themeButton.addEventListener('click', () => {
-  const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-  setTheme(nextTheme);
-  localStorage.setItem('portfolio-theme', nextTheme);
-});
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
+    function applyTheme(nextTheme) {
+      theme = nextTheme;
+      root.dataset.theme = theme;
+      const isDark = theme === 'dark';
+      button.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
+      button.setAttribute('aria-pressed', String(isDark));
+      button.querySelector('span').textContent = isDark ? 'Light mode' : 'Dark mode';
+      themeColor.content = isDark ? '#182124' : '#ffffff';
     }
+
+    applyTheme(theme);
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      applyTheme(theme === 'dark' ? 'light' : 'dark');
+      try {
+        localStorage.setItem(storageKey, theme);
+      } catch {
+        // Theme changes remain usable for the current visit.
+      }
+    });
+
+    window.addEventListener('storage', (event) => {
+      if (event.key === storageKey) {
+        applyTheme(event.newValue === 'dark' ? 'dark' : 'light');
+      }
+    });
+
+    const sections = [...document.querySelectorAll('main > article[id]')];
+    const links = [...document.querySelectorAll('.section-nav a')];
+    let scheduled = false;
+
+    function updateSection() {
+      let current = sections[0];
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= 160) current = section;
+      }
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+        current = sections[sections.length - 1];
+      }
+      for (const link of links) {
+        if (link.hash === `#${current.id}`) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      }
+      scheduled = false;
+    }
+
+    function scheduleUpdate() {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(updateSection);
+    }
+
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
+    updateSection();
   });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
-
-const navLinks = [...document.querySelectorAll('.nav-pill a')];
-const sections = [...document.querySelectorAll('main section[id]')];
-const sectionObserver = new IntersectionObserver((entries) => {
-  const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-  if (!visible) return;
-
-  navLinks.forEach((link) => {
-    link.classList.toggle('active', link.hash === `#${visible.target.id}`);
-  });
-}, { rootMargin: '-25% 0px -60%', threshold: [0, 0.2, 0.5] });
-
-sections.forEach((section) => sectionObserver.observe(section));
-document.querySelector('#year').textContent = new Date().getFullYear();
+})();
